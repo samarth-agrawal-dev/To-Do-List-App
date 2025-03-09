@@ -3,7 +3,7 @@ export interface User {
   uid: string;
   email: string | null;
   displayName: string | null;
-  photoURL?: string | null;
+  photoURL: string | null;
   emailVerified?: boolean;
 }
 interface AuthState {
@@ -11,6 +11,7 @@ interface AuthState {
     uid: string | null;
     email: string | null;
     displayName: string | null;
+    photoUrl: string | null;
   } | null;
   loading: boolean;
   error: string | null;
@@ -32,6 +33,7 @@ const authSlice = createSlice({
           uid: action.payload.uid,
           email: action.payload.email,
           displayName: action.payload.displayName,
+          photoUrl: action.payload.photoURL,
         };
       } else {
         state.user = null;

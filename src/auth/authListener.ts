@@ -16,6 +16,7 @@ export const AuthListener = () => {
           uid: user.uid,
           email: user.email,
           displayName: user.displayName,
+          photoURL:user.photoURL
         }));
       } else {
         dispatch(setUser(null));
