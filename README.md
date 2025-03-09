@@ -1,54 +1,27 @@
-# React + TypeScript + Vite
+# To-Do List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![App Screenshot](./public/Screenshot%202025-03-10%20000321.png)
 
-Currently, two official plugins are available:
+A simple and intuitive to-do list app built with **React**, **Firebase**, and **Tailwind CSS**. Manage your tasks efficiently with features like adding, editing, and deleting tasks, as well as user authentication.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **User Authentication**: Sign up, log in, and log out using Firebase Authentication.
+- **Task Management**:
+  - Add new tasks with a title and description.
+  - Mark tasks as completed.
+  - Edit or delete tasks.
+- **Real-Time Sync**: Tasks are stored in Firestore and synced in real-time.
+- **Responsive Design**: Built with Tailwind CSS for a clean and responsive UI.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Technologies Used
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **Frontend**: React, Vite, TypeScript
+- **Styling**: Tailwind CSS
+- **Backend**: Firebase (Authentication, Firestore)
+- **Routing**: React Router DOM
+- **State Management**: Redux Toolkit
