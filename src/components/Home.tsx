@@ -1,8 +1,9 @@
 import Navbar from "./Navbar"
+import TodoList from "./Todos"
 
 const Home = () => {
   return (
-    <div><Navbar /></div>
+    <div><Navbar /><TodoList /></div>
   )
 }
 

@@ -27,8 +27,8 @@ export const getTodos = async (userId: string): Promise<Todo[]> => {
     }));
 };
 
-export const updateTodo = async (id: string, completed: boolean, userId:string, setTodos:React.Dispatch<React.SetStateAction<Todo[]>>) => {
-    await updateDoc(doc(db, 'todos', id), { completed });
+export const updateTodo = async (id: string, completed: boolean, userId:string, title:string, description:string, setTodos:React.Dispatch<React.SetStateAction<Todo[]>>) => {
+    await updateDoc(doc(db, 'todos', id), { completed, title, description });
     const todos = await getTodos(userId);
     setTodos(todos)
 };

@@ -12,7 +12,7 @@ export default function Profile() {
             <img className='rounded-full' src={user.photoUrl as string} width={50} /> :
             <FaRegUser size={28}/>
           }
-          <p className='font-[Poppins] font-semibold'>{user.uid ? user.uid : user.email }</p>
+          <p className='font-[Poppins] text-lg font-semibold'>{user.displayName ? user.displayName : user.email }</p>
         </div>
       )}
     </div>

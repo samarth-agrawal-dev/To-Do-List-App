@@ -3,8 +3,8 @@ import { useAuth } from '../auth/authHooks';
 import { getTodos, updateTodo, deleteTodo } from '../services/todoServices';
 import { Todo } from '@/types';
 import { MdDelete } from "react-icons/md";
-import { MdEdit } from "react-icons/md";
 import AddTodo from './AddTodo';
+import UpdateTodo from './UpdateTodo';
 function TodoList() {
   const { user } = useAuth();
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -29,7 +29,7 @@ function TodoList() {
     }
   }, [user]);
 
-  return (<div className='bg-black min-h-screen grid grid-cols-4 items-center justify-center'>
+  return (<div className='bg-black min-h-[91vh] grid grid-cols-4 items-center justify-center'>
     {todos.length ? todos.map((todo, idx) => (
       <li key={todo.id}>
         <div className={`text-white mx-auto rounded-3xl w-[300px] min-h-[200px] flex gap-6 p-5 justify-between items-center ${gradients[idx % gradients.length]}`}>
@@ -38,7 +38,7 @@ function TodoList() {
               type="checkbox"
               id={todo.id}
               checked={todo.completed}
-              onChange={() => updateTodo(todo.id, !todo.completed, user?.uid as string, setTodos)}
+              onChange={() => updateTodo(todo.id, !todo.completed, user?.uid as string,todo.title,todo.description, setTodos)}
             />
             <label htmlFor={todo.id}>
               <div className='flex flex-col'>
@@ -48,12 +48,12 @@ function TodoList() {
             </label>
           </div>
           <div className='flex flex-col gap-5'>
-            <MdEdit size={25} color='black'/>
+            <UpdateTodo setTodos={setTodos} todo={todo}/>
             <MdDelete size={25} color='black' onClick={() => deleteTodo(todo.id, user?.uid as string, setTodos)} />
           </div>
         </div>
       </li>
-    )) : <span className='font-[Poppins] font-bold text-[#262525] text-[100px]'>You dont have any todos.</span>}
+    )) : <span className='font-[Poppins] col-span-4 mx-auto font-bold text-[#262525] text-[100px]'>You dont have any todos.</span>}
     <div className='w-[50px] mx-auto'>
       <AddTodo setTodos={setTodos} />
     </div>
